@@ -1,0 +1,10 @@
+menu "Extensions"
+
+
+config BR2_PACKAGE_PACKAGE1_EXTENSION1
+	select BR2_PACKAGE_BZIP2
+	bool "Extension 1"
+	help
+	  A wonderful extension.
+
+endmenu
