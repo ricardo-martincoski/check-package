@@ -1,0 +1,2 @@
+name: CHECK_PACKAGE_BAD_EXAMPLES
+desc: buildroot/support/scripts/check-package
