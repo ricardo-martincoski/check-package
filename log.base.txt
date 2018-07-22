@@ -25,6 +25,8 @@ package/alsamixergui/0001-misc-fixes.patch:0: missing Signed-off-by in the heade
 package/am33x-cm3/S93-am335x-pm-firmware-load: ignored
 package/amd-catalyst/20-fglrx.conf: ignored
 package/amd-catalyst/gl.pc: ignored
+package/apache/S50apache: ignored
+package/apache/apache.service: ignored
 package/argp-standalone/0001-throw-in-funcdef.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/arptables/0002-src-Use-stdint-types.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/2] src: Use stdint types
@@ -94,6 +96,8 @@ package/clapack/0004-cmake-blas-add-library-and-header-install-rules.patch:4: ge
 Subject: [PATCH 4/6] cmake: blas: add library and header install rules
 package/clapack/0005-cmake-lapack-add-library-and-header-install-rules.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 5/6] cmake: lapack: add library and header install rules
+package/cmocka/0001-cmocka-cmake-fix-stack-protect-check.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 1/1] cmocka cmake: fix stack protect check
 package/collectd/collectd.service: ignored
 package/connman/S45connman: ignored
 package/crda/0001-crda-support-python-3-in-utils-key2pub.py.patch:4: generate your patches with 'git format-patch -N'
@@ -141,6 +145,7 @@ package/domoticz/S99domoticz: ignored
 package/domoticz/domoticz.service: ignored
 package/dropbear/S50dropbear: ignored
 package/dropbear/dropbear.service: ignored
+package/dropbear/etc-pam.d-sshd: ignored
 package/ejabberd/S50ejabberd: ignored
 package/ejabberd/check-erlang-lib: ignored
 package/erlang-p1-sip/0001-fix-includes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -148,7 +153,6 @@ package/erlang-p1-stun/0001-remove-dependencies-from-rebar-config.patch:0: missi
 package/espeak/0002-tr_languages-cast-string_ordinal-init-values.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] tr_languages: cast string_ordinal init values
 package/eudev/S10udev: ignored
-package/exim/Local-Makefile: ignored
 package/exim/S86exim: ignored
 package/exim/exim.service: ignored
 package/ezxml/0001-allow-compiler-override.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -260,6 +264,7 @@ package/irda-utils/0003-subdir.patch:0: missing Signed-off-by in the header (htt
 package/irqbalance/S13irqbalance: ignored
 package/irqbalance/irqbalance.service: ignored
 package/iucode-tool/S00iucode-tool: ignored
+package/iucode-tool/iucode.service: ignored
 package/keyutils/0002-cifs.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/kismet/0001-ncurses.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/kismet/0002-nobsd.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -274,8 +279,6 @@ package/libart/0001-art-config-cross.patch:0: missing Signed-off-by in the heade
 package/libasplib/0001-asplib_CPUTimer.h-Fix-time.h-include.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] asplib_CPUTimer.h: Fix time.h include
 package/libcgicc/0001-disable-documentation-option.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/libcurl/0001-Fix-link-with-ssh2-built-with-a-static-mbedtls.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix link with ssh2 built with a static mbedtls
 package/libdnet/0001-python-gcc.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libdnet/0002-python-makefile.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libdvdnav/0001-do-not-match-nios2-as-os2.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -319,8 +322,6 @@ Subject: [PATCH 2/2] Add Libs.private field to libnftnl.pc
 package/libnl/0001-build-add-Libs.private-field-in-libnl-pkg-config-fil.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] build: add Libs.private field in libnl pkg-config file
 package/libnss/nss.pc.in: ignored
-package/libraw/0001-Remove-paths-which-break-cross-compilation.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Remove paths which break cross-compilation
 package/libshout/0001-Fix-THEORA-SPEEX-_LDFLAGS-typo.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/2] Fix {THEORA,SPEEX}_LDFLAGS typo
 package/libshout/0002-Make-sure-SHOUT_REQUIRES-contains-OpenSSL.patch:4: generate your patches with 'git format-patch -N'
@@ -367,6 +368,13 @@ package/mariadb/S97mysqld: ignored
 package/mariadb/mysqld.service: ignored
 package/matchbox-keyboard/mb-applet-kbd-wrapper.sh: ignored
 package/mcrypt/0001-CVE-2012-4409.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/mender/mender-device-identity: ignored
+package/mender/mender-inventory-hostinfo: ignored
+package/mender/mender-inventory-network: ignored
+package/mender/mender.conf: ignored
+package/mender/mender.service: ignored
+package/mender/server.crt: ignored
+package/mender/tenant.conf: ignored
 package/meson/cross-compilation.conf.in: ignored
 package/metacity/Xsession: ignored
 package/mfgtools/readme.txt: ignored
@@ -462,6 +470,7 @@ package/pkg-golang.mk: ignored
 package/pkg-kconfig.mk: ignored
 package/pkg-kernel-module.mk: ignored
 package/pkg-luarocks.mk: ignored
+package/pkg-meson.mk: ignored
 package/pkg-perl.mk: ignored
 package/pkg-python.mk: ignored
 package/pkg-rebar.mk: ignored
@@ -469,8 +478,6 @@ package/pkg-utils.mk: ignored
 package/pkg-virtual.mk: ignored
 package/pkg-waf.mk: ignored
 package/pkgconf/pkg-config.in: ignored
-package/poco/0001-poco-add-the-staging-path-to-search-path.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] poco: add the staging path to search path
 package/popt/0001-no-wchar.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/postgresql/S50postgresql: ignored
 package/postgresql/pg_config: ignored
@@ -514,6 +521,8 @@ package/qt/powervr.ini: ignored
 package/qt5/qt5base/qmake.conf.in: ignored
 package/qt5/qt5base/qplatformdefs.h: ignored
 package/qt5/qt5base/qt.conf.in: ignored
+package/qt5/qt5virtualkeyboard/2.0/0001-remove-weird-install-path-for-example.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 1/1] remove weird install path for example
 package/qt5/qt5webengine/chromium.inc: ignored
 package/qt5/qt5webengine/host-pkg-config.in: ignored
 package/qt5/qt5webkit-examples/0001-Build-examples.patch:4: generate your patches with 'git format-patch -N'
@@ -666,12 +675,8 @@ package/zip/0005-unix-configure-remove-GID-UID-size-check.patch:4: generate your
 Subject: [PATCH 5/6] unix/configure: remove GID/UID size check
 package/zip/0006-unix-configure-borrow-the-LFS-test-from-autotools.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 6/6] unix/configure: borrow the LFS test from autotools.
-package/zmqpp/0001-Allow-building-shared-or-static-library-only.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] Allow building shared or static library only
-package/zmqpp/0002-Install-static-library-for-static-builds.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] Install static library for static builds
-261649 lines processed
-214 warnings generated
+264422 lines processed
+211 warnings generated
 package/package1/0001-do-something.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 25/39] do something
 package/package1/0001-do-something.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
