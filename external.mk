@@ -18,3 +18,5 @@ check-package-python-version:
 	$(foreach log,log.python2.txt log.python3.txt, \
 		diff -U3 $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/log.base.txt $(BASE_DIR)/$(log) > $(BASE_DIR)/log.diff; \
 	)
+	python2 -m flake8 --stat $(CURDIR)/{utils/checkpackagelib/*.py,utils/check-package}
+	python3 -m flake8 --stat $(CURDIR)/{utils/checkpackagelib/*.py,utils/check-package}
