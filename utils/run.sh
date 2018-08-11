@@ -54,7 +54,7 @@ main() {
         ${python_interpreter} ./utils/check-package -vvv $(git ls-files -- package) || true
         cd "${br2_external_dir}"
         ${python_interpreter} "${buildroot_dir}/utils/check-package" -b -vvv $(git ls-files -- package) || true
-    } 1>"${logfile}" 2>&1
+    } 1>"${logfile}"
 }
 
 my_name="${0##*/}"

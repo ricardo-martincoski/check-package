@@ -675,8 +675,6 @@ package/zip/0005-unix-configure-remove-GID-UID-size-check.patch:4: generate your
 Subject: [PATCH 5/6] unix/configure: remove GID/UID size check
 package/zip/0006-unix-configure-borrow-the-LFS-test-from-autotools.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 6/6] unix/configure: borrow the LFS test from autotools.
-264422 lines processed
-211 warnings generated
 package/package1/0001-do-something.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 25/39] do something
 package/package1/0001-do-something.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -792,5 +790,3 @@ package/package1/wrong-name.patch:0: use name <number>-<description>.patch (http
 package/package1/wrong-name.patch:14: missing newline at end of file
  #include <curses.h>
 package/package1/wrong-name.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-180 lines processed
-57 warnings generated
