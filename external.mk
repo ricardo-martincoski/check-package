@@ -1,6 +1,6 @@
 include $(sort $(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/package/*/*.mk))
 
-check-check-package: check-package-reference-log check-package-python-version
+check-check-package: check-package-reference-log check-package-python-version unit-tests
 
 update-reference-log:
 	$(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/utils/run.sh -b $(TOPDIR) -e $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH) -o $(BASE_DIR) -l $(BASE_DIR)/log.base.txt
@@ -20,3 +20,14 @@ check-package-python-version:
 	)
 	python2 -m flake8 --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
 	python3 -m flake8 --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
+
+unit-tests:
+	rm -rf $(BASE_DIR)/pytest
+	mkdir -p $(BASE_DIR)/pytest
+	sed '/^__main__()/d' $(TOPDIR)/utils/check-package > $(BASE_DIR)/pytest/check_package.py
+	ln -snf $(TOPDIR)/utils/checkpackagelib $(BASE_DIR)/pytest/checkpackagelib
+	$(foreach file,$(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/pytest/*), \
+		ln -snf $(file) $(BASE_DIR)/pytest/ ;\
+	)
+	cd $(BASE_DIR)/pytest && pytest
+	python2 -m flake8 --stat $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/

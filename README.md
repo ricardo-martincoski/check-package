@@ -9,6 +9,7 @@ Helper files to test changes in check-package script.
 * Python 2 (2.6 or any later)
 * Python 3 (3.6 or any later)
 * flake8 for both Python 2 and Python 3
+* pytest
 
 ### Installing
 
