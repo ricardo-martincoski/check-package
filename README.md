@@ -25,7 +25,7 @@ make update-reference-log
 
 If your setup is OK this command must not end on error:
 ```
-make check-package
+make check-check-package
 ```
 
 ## Running the tests
@@ -38,7 +38,7 @@ different.
 If you added changes that should not change the script behaviour in the main use
 case, this target must build without any error.
 ```
-make check-package
+make check-check-package
 ```
 
 If you added a new check for the script the target above will fail, but it

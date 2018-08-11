@@ -1,6 +1,6 @@
 include $(sort $(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/package/*/*.mk))
 
-check-package: check-package-reference-log check-package-python-version
+check-check-package: check-package-reference-log check-package-python-version
 
 update-reference-log:
 	$(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/utils/run.sh -b $(CURDIR) -e $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH) -o $(BASE_DIR) -l $(BASE_DIR)/log.base.txt
