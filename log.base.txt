@@ -168,8 +168,6 @@ package/fis/0001-checksum.patch:0: missing Signed-off-by in the header (http://n
 package/fis/0003-list_output.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/fis/0004-sorted_list.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/fluxbox/xsession: ignored
-package/freerdp/0001-Fix-gstreamer-1.0-detection.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix gstreamer-1.0 detection
 package/freescale-imx/gpu-amd-bin-mx51/egl.pc: ignored
 package/freescale-imx/gpu-amd-bin-mx51/glesv2.pc: ignored
 package/freescale-imx/gpu-amd-bin-mx51/vg.pc: ignored
@@ -561,8 +559,6 @@ package/rsyslog/S01logging: ignored
 package/rubix/0002-misc-fixes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/rygel/S99rygel: ignored
 package/rygel/rygel.service: ignored
-package/samba4/0003-Fix-uClibc-build-on-64bit-platforms-by-including-std.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix uClibc build on 64bit platforms by including stdint.h
 package/samba4/S91smb: ignored
 package/samba4/samba4-cache.txt: ignored
 package/sane-backends/saned.socket: ignored
