@@ -13,7 +13,7 @@ consecutive_empty_lines = [
 
 
 @pytest.mark.parametrize("filename,string,expected", consecutive_empty_lines)
-def test_empty_lines(filename, string, expected):
+def test_consecutive_empty_lines(filename, string, expected):
     warnings = util.check_file(m.ConsecutiveEmptyLines, filename, string)
     assert warnings == expected
 
