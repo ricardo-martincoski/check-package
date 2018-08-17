@@ -45,3 +45,19 @@ newline_at_eof = [
 def test_newline_at_eof(filename, string, expected):
     warnings = util.check_file(m.NewlineAtEof, filename, string)
     assert warnings == expected
+
+
+trailing_space = [
+    ('any', 'text\n', []),
+    ('any', '\ntext', []),
+    ('any', 'text  \n', [['any:1: line contains trailing whitespace', 'text  \n']]),
+    ('any', 'text\t\t\n', [['any:1: line contains trailing whitespace', 'text\t\t\n']]),
+    ('any', ' \n ', [['any:1: line contains trailing whitespace', ' \n'], ['any:2: line contains trailing whitespace', ' ']]),
+    ('any', '\n\t', [['any:2: line contains trailing whitespace', '\t']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", trailing_space)
+def test_trailing_space(filename, string, expected):
+    warnings = util.check_file(m.TrailingSpace, filename, string)
+    assert warnings == expected
