@@ -31,3 +31,17 @@ empty_last_line = [
 def test_empty_last_line(filename, string, expected):
     warnings = util.check_file(m.EmptyLastLine, filename, string)
     assert warnings == expected
+
+
+newline_at_eof = [
+    ('any', 'text\n', []),
+    ('any', '\ntext', [['any:2: missing newline at end of file', 'text']]),
+    ('any', '\n ', [['any:2: missing newline at end of file', ' ']]),
+    ('any', '\n\t', [['any:2: missing newline at end of file', '\t']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", newline_at_eof)
+def test_newline_at_eof(filename, string, expected):
+    warnings = util.check_file(m.NewlineAtEof, filename, string)
+    assert warnings == expected
