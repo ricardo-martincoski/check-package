@@ -31,3 +31,18 @@ numbered_subject = [
 def test_numbered_subject(filename, string, expected):
     warnings = util.check_file(m.NumberedSubject, filename, string)
     assert warnings == expected
+
+
+sob = [
+    ('patch', 'Signed-off-by: John Doe <johndoe@example.com>\n', []),
+    ('patch', '', [
+     ['patch:0: missing Signed-off-by in the header (url#_format_and_licensing_of_the_package_patches)']]),
+    ('patch', 'Subject: [PATCH 24/105] text\n', [
+     ['patch:0: missing Signed-off-by in the header (url#_format_and_licensing_of_the_package_patches)']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", sob)
+def test_sob(filename, string, expected):
+    warnings = util.check_file(m.Sob, filename, string)
+    assert warnings == expected
