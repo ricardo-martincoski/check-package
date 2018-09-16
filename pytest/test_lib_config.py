@@ -80,3 +80,47 @@ attributes_order = [
 def test_attributes_order(filename, string, expected):
     warnings = util.check_file(m.AttributesOrder, filename, string)
     assert warnings == expected
+
+
+help_text = [
+    ('any', 'config BR2_PACKAGE_FOO\n'
+            'bool "foo"\n'
+            'default y\n'
+            'depends on BR2_USE_BAR # runtime\n'
+            'select BR2_PACKAGE_BAZ\n'
+            'help\n'
+            '\t  help text\n', []),
+    ('any', 'help\n'
+            '\t  123456789 123456789 123456789 123456789 123456789 123456789 12\n'
+            '\t  123456789 123456789 123456789 123456789 123456789 123456789 123\n'
+            '\t  help text\n',
+            [['any:3: help text: <tab><2 spaces><62 chars> (url#writing-rules-config-in)',
+              '\t  123456789 123456789 123456789 123456789 123456789 123456789 123\n',
+              '\t  123456789 123456789 123456789 123456789 123456789 123456789 12']]),
+    ('any', 'help\n'
+            '\t  123456789 123456789 123456789 123456789 123456789 123456789 12\n'
+            '\t  refer to http://url.that.is.longer.than.seventy.two.characthers/folder_name\n'
+            '\n'
+            '\t  http://url.that.is.longer.than.seventy.two.characthers/folder_name\n',
+            [['any:3: help text: <tab><2 spaces><62 chars> (url#writing-rules-config-in)',
+              '\t  refer to http://url.that.is.longer.than.seventy.two.characthers/folder_name\n',
+              '\t  123456789 123456789 123456789 123456789 123456789 123456789 12']]),
+    ('any', 'help\n'
+            '\t  123456789 123456789 123456789 123456789 123456789 123456789 12\n'
+            '\t  http://url.that.is.longer.than.seventy.two.characthers/folder_name\n'
+            '\t  https://url.that.is.longer.than.seventy.two.characthers/folder_name\n'
+            '\t  git://url.that.is.longer.than.seventy.two.characthers/folder_name\n',
+            []),
+    ('any', 'help\n'
+            '\t  123456789 123456789 123456789 123456789 123456789 123456789 12\n'
+            '\t  summary:\n'
+            '\t    - enable that config\n'
+            '\t    - built it\n',
+            []),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", help_text)
+def test_help_text(filename, string, expected):
+    warnings = util.check_file(m.HelpText, filename, string)
+    assert warnings == expected
