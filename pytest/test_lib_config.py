@@ -124,3 +124,49 @@ help_text = [
 def test_help_text(filename, string, expected):
     warnings = util.check_file(m.HelpText, filename, string)
     assert warnings == expected
+
+
+indent = [
+    ('any', 'config BR2_PACKAGE_FOO\n'
+            '\tbool "foo"\n'
+            '\tdefault y\n'
+            '\tdepends on BR2_TOOLCHAIN_HAS_THREADS\n'
+            '\tdepends on BR2_INSTALL_LIBSTDCPP\n'
+            '# very useful comment\n'
+            '\tselect BR2_PACKAGE_BAZ\n'
+            '\thelp\n'
+            '\t  help text\n'
+            '\n'
+            'comment "foo needs toolchain w/ C++, threads"\n'
+            '\tdepends on !BR2_INSTALL_LIBSTDCPP || \\\n'
+            '\t\t!BR2_TOOLCHAIN_HAS_THREADS\n'
+            '\n'
+            'source "package/foo/bar/Config.in"\n',
+            []),
+    ('any', 'config BR2_PACKAGE_FOO\n'
+            '        bool "foo"\n',
+            [['any:2: should be indented with one tab (url#_config_files)', '        bool "foo"\n']]),
+    ('any', 'config BR2_PACKAGE_FOO\n'
+            'default y\n',
+            [['any:2: should be indented with one tab (url#_config_files)', 'default y\n']]),
+    ('any', 'config BR2_PACKAGE_FOO\n'
+            '\t\tdepends on BR2_TOOLCHAIN_HAS_THREADS\n',
+            [['any:2: should be indented with one tab (url#_config_files)', '\t\tdepends on BR2_TOOLCHAIN_HAS_THREADS\n']]),
+    ('any', 'config BR2_PACKAGE_FOO\n'
+            '     help\n',
+            [['any:2: should be indented with one tab (url#_config_files)', '     help\n']]),
+    ('any', 'comment "foo needs toolchain w/ C++, threads"\n'
+            '\tdepends on !BR2_INSTALL_LIBSTDCPP || \\\n'
+            '                !BR2_TOOLCHAIN_HAS_THREADS\n',
+            [['any:3: continuation line should be indented using tabs', '                !BR2_TOOLCHAIN_HAS_THREADS\n']]),
+    ('any', '\tcomment "foo needs toolchain w/ C++, threads"\n',
+            [['any:1: should not be indented', '\tcomment "foo needs toolchain w/ C++, threads"\n']]),
+    ('any', '  comment "foo needs toolchain w/ C++, threads"\n',
+            [['any:1: should not be indented', '  comment "foo needs toolchain w/ C++, threads"\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", indent)
+def test_indent(filename, string, expected):
+    warnings = util.check_file(m.Indent, filename, string)
+    assert warnings == expected
