@@ -25,6 +25,7 @@ package/alsamixergui/0001-misc-fixes.patch:0: missing Signed-off-by in the heade
 package/am33x-cm3/S93-am335x-pm-firmware-load: ignored
 package/amd-catalyst/20-fglrx.conf: ignored
 package/amd-catalyst/gl.pc: ignored
+package/android-tools/0008-Include-sysmacros.h-to-compile-with-glibc-2.28.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/apache/S50apache: ignored
 package/apache/apache.service: ignored
 package/argp-standalone/0001-throw-in-funcdef.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -62,6 +63,10 @@ package/bc/03_use_appropiate_makeinfo.patch:0: use name <number>-<description>.p
 package/bellagio/0001-drop-werror.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/bind/S81named: ignored
 package/bind/named.service: ignored
+package/bison/0001-fflush-adjust-to-glibc-2.28-libio.h-removal.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 1/1] fflush: adjust to glibc 2.28 libio.h removal
+package/bison/0002-fflush-be-more-paranoid-about-libio.h-change.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 2/2] fflush: be more paranoid about libio.h change
 package/bluez_utils/0003-fix-compilation-issues-with-musl.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] fix compilation issues with musl.
 package/boa/boa.conf: ignored
@@ -327,6 +332,7 @@ Subject: [PATCH 2/2] Make sure @SHOUT_REQUIRES@ contains OpenSSL
 package/libtirpc/0001-Disable-parts-of-TIRPC-requiring-NIS-support.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Disable parts of TIRPC requiring NIS support
 package/lighttpd/S50lighttpd: ignored
+package/lighttpd/lighttpd_tmpfiles.conf: ignored
 package/linux-fusion/40-fusion.rules: ignored
 package/linux-pam/login.pam: ignored
 package/linux-pam/other.pam: ignored
@@ -357,6 +363,8 @@ package/lsof/0002-noportmap.patch:0: missing Signed-off-by in the header (http:/
 package/lsof/0003-override-cflags.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/lsof/0004-remove-susvlegacy-funcs.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/lua/lua.pc.in: ignored
+package/m4/0002-fflush-be-more-paranoid-about-libio.h-change.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 2/2] fflush: be more paranoid about libio.h change
 package/madplay/0001-switch-to-new-alsa-api.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/makedevs/README: ignored
 package/makedevs/makedevs.c: ignored
@@ -366,13 +374,9 @@ package/mariadb/S97mysqld: ignored
 package/mariadb/mysqld.service: ignored
 package/matchbox-keyboard/mb-applet-kbd-wrapper.sh: ignored
 package/mcrypt/0001-CVE-2012-4409.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/mender/mender-device-identity: ignored
-package/mender/mender-inventory-hostinfo: ignored
-package/mender/mender-inventory-network: ignored
 package/mender/mender.conf: ignored
 package/mender/mender.service: ignored
 package/mender/server.crt: ignored
-package/mender/tenant.conf: ignored
 package/meson/cross-compilation.conf.in: ignored
 package/metacity/Xsession: ignored
 package/mfgtools/readme.txt: ignored
@@ -521,7 +525,8 @@ package/qt5/qt5base/qplatformdefs.h: ignored
 package/qt5/qt5base/qt.conf.in: ignored
 package/qt5/qt5virtualkeyboard/2.0/0001-remove-weird-install-path-for-example.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] remove weird install path for example
-package/qt5/qt5webengine/chromium.inc: ignored
+package/qt5/qt5webengine/chromium-latest.inc: ignored
+package/qt5/qt5webengine/chromium-lts.inc: ignored
 package/qt5/qt5webengine/host-pkg-config.in: ignored
 package/qt5/qt5webkit-examples/0001-Build-examples.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Build examples
@@ -588,6 +593,7 @@ package/stella/0001-Add-cross-compilation-support.patch:4: generate your patches
 Subject: [PATCH 1/2] Add cross-compilation support
 package/stella/0002-Do-not-strip-when-installing.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] Do not strip when installing
+package/stress-ng/0001-stress-netlink-proc-fix-build-with-kernel-v3.9.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/stunnel/S50stunnel: ignored
 package/sudo/sudo.pam: ignored
 package/sunxi-mali-mainline/egl.pc: ignored
