@@ -53,7 +53,9 @@ main() {
         ${python_interpreter} ./utils/check-package --help
         ${python_interpreter} ./utils/check-package -vvv $(git ls-files -- package) || true
         cd "${br2_external_dir}"
-        ${python_interpreter} "${buildroot_dir}/utils/check-package" -b -vvv $(git ls-files -- package) || true
+        ${python_interpreter} "${buildroot_dir}/utils/check-package" -b -vvv $(git ls-files -- package) | \
+            sed -e "s,^${br2_external_dir}/,,g" \
+            || true
     } 1>"${logfile}"
 }
 
