@@ -59,3 +59,30 @@ indent = [
 def test_indent(filename, string, expected):
     warnings = util.check_file(m.Indent, filename, string)
     assert warnings == expected
+
+
+package_header = [
+    ('any', '# very useful comment\n',
+     [['any:1: should be 80 hashes (url#writing-rules-mk)',
+       '# very useful comment\n',
+       80 * '#']]),
+    ('any', 80 * '#' + '\n', []),
+    ('any', 80 * '#' + '\n# package\n', [['any:2: should be 1 hash (url#writing-rules-mk)', '# package\n']]),
+    ('any', 80 * '#' + '\n#\n# package\n', []),
+    ('any', 80 * '#' + '\n#\n# package\n#\n', []),
+    ('any', 80 * '#' + '\n#\n# package\n#\n' + 80 * '#' + '\n', []),
+    ('any', 80 * '#' + '\n#\n# package\n#\n' + 80 * '#' + '\n\n', []),
+    ('any', 80 * '#' + '\n#\n# package\n#\n' + 80 * '#' + '\nFOO_VERSION = 1\n',
+     [['any:6: should be a blank line (url#writing-rules-mk)', 'FOO_VERSION = 1\n']]),
+    ('any', 79 * '#' + '\n#\n# package\n#\n' + 81 * '#' + '\n\n',
+     [['any:1: should be 80 hashes (url#writing-rules-mk)', 79 * '#' + '\n', 80 * '#'],
+      ['any:5: should be 80 hashes (url#writing-rules-mk)', 81 * '#' + '\n', 80 * '#']]),
+    ('any', 'include $(sort $(wildcard package/foo/*/*.mk))\n', []),
+    ('any', 80 * '#' + '\n#\n# package\n#\n' + 80 * '#' + '\n\nFOO_VERSION = 1\n', []),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", package_header)
+def test_package_header(filename, string, expected):
+    warnings = util.check_file(m.PackageHeader, filename, string)
+    assert warnings == expected
