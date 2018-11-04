@@ -86,3 +86,39 @@ package_header = [
 def test_package_header(filename, string, expected):
     warnings = util.check_file(m.PackageHeader, filename, string)
     assert warnings == expected
+
+
+remove_default_package_source_variable = [
+    ('./any.mk', '\n', []),
+    ('any/any.mk', '\n', []),
+    ('./any/any.mk', '\n', []),
+    ('package/any/any.mk', '\n', []),
+    ('./package/any/any.mk', '\n', []),
+    ('/tmp/any.mk', '\n', []),
+    ('any.mk', '\n', []),  # catches https://bugs.busybox.net/show_bug.cgi?id=11271
+    ('any.mk', 'ANY_SOURCE = any-$(ANY_VERSION).tar.gz\n',
+     [['any.mk:1: remove default value of _SOURCE variable (url#generic-package-reference)',
+       'ANY_SOURCE = any-$(ANY_VERSION).tar.gz\n']]),
+    ('./any.mk', 'ANY_SOURCE = any-$(ANY_VERSION).tar.gz\n',
+     [['./any.mk:1: remove default value of _SOURCE variable (url#generic-package-reference)',
+       'ANY_SOURCE = any-$(ANY_VERSION).tar.gz\n']]),
+    ('./any.mk', '\n\n\nANY_SOURCE = any-$(ANY_VERSION).tar.gz\n',
+     [['./any.mk:4: remove default value of _SOURCE variable (url#generic-package-reference)',
+       'ANY_SOURCE = any-$(ANY_VERSION).tar.gz\n']]),
+    ('./any.mk', 'ANY_SOURCE=any-$(ANY_VERSION).tar.gz\n',
+     [['./any.mk:1: remove default value of _SOURCE variable (url#generic-package-reference)',
+       'ANY_SOURCE=any-$(ANY_VERSION).tar.gz\n']]),
+    ('./any.mk', 'ANY_SOURCE = aNy-$(ANY_VERSION).tar.gz\n', []),
+    ('gcc.mk', 'GCC_SOURCE = gcc-$(GCC_VERSION).tar.gz\n', []),
+    ('./binutils.mk', 'BINUTILS_SOURCE = binutils-$(BINUTILS_VERSION).tar.gz\n', []),
+    ('gdb/gdb.mk', 'GDB_SOURCE = gdb-$(GDB_VERSION).tar.gz\n', []),
+    ('python-subprocess32.mk', 'PYTHON_SUBPROCESS32_SOURCE = python-subprocess32-$(PYTHON_SUBPROCESS32_VERSION).tar.gz\n',
+     [['python-subprocess32.mk:1: remove default value of _SOURCE variable (url#generic-package-reference)',
+       'PYTHON_SUBPROCESS32_SOURCE = python-subprocess32-$(PYTHON_SUBPROCESS32_VERSION).tar.gz\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", remove_default_package_source_variable)
+def test_remove_default_package_source_variable(filename, string, expected):
+    warnings = util.check_file(m.RemoveDefaultPackageSourceVariable, filename, string)
+    assert warnings == expected
