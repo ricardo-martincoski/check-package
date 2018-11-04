@@ -4,10 +4,15 @@ import checkpackagelib.lib_patch as m
 
 
 apply_order = [
+    ('0001-description.patch', '', []),  # catches https://bugs.busybox.net/show_bug.cgi?id=11271
     ('path/0001-description.patch', '', []),
+    ('1-description.patch', '', []),
     ('path/1-description.patch', '', []),
+    ('package-0001-description.patch', '', [
+     ['package-0001-description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
     ('path/package-0001-description.patch', '', [
      ['path/package-0001-description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
+    ('description.patch', '', [['description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
     ('path/description.patch', '', [['path/description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
     ]
 
