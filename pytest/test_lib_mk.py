@@ -122,3 +122,25 @@ remove_default_package_source_variable = [
 def test_remove_default_package_source_variable(filename, string, expected):
     warnings = util.check_file(m.RemoveDefaultPackageSourceVariable, filename, string)
     assert warnings == expected
+
+
+space_before_backslash = [
+    ('any.mk', '\n', []),
+    ('any.mk', 'define ANY_SOME_FIXUP\nfor i in $$(find $(STAGING_DIR)/usr/lib* -name "any*.la"); do \\\n', []),
+    ('any.mk', 'ANY_CONF_ENV= \\\n\tap_cv_void_ptr_lt_long=no \\\n', []),
+    ('any.mk', 'ANY = \\\n', []),
+    ('any.mk', '\nANY = \\\n', []),
+    ('any.mk', 'ANY =  \\\n', [['any.mk:1: use only one space before backslash', 'ANY =  \\\n']]),
+    ('any.mk', '\nANY =  \\\n', [['any.mk:2: use only one space before backslash', 'ANY =  \\\n']]),
+    ('any.mk', 'ANY =\t\\\n', [['any.mk:1: use only one space before backslash', 'ANY =\t\\\n']]),
+    ('any.mk', 'ANY =\t\t\\\n', [['any.mk:1: use only one space before backslash', 'ANY =\t\t\\\n']]),
+    ('any.mk', 'ANY =  \t\t\\\n', [['any.mk:1: use only one space before backslash', 'ANY =  \t\t\\\n']]),
+    ('any.mk', 'ANY = \t \t\\\n', [['any.mk:1: use only one space before backslash', 'ANY = \t \t\\\n']]),
+    ('any.mk', 'ANY = \t  \\\n', [['any.mk:1: use only one space before backslash', 'ANY = \t  \\\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", space_before_backslash)
+def test_space_before_backslash(filename, string, expected):
+    warnings = util.check_file(m.SpaceBeforeBackslash, filename, string)
+    assert warnings == expected
