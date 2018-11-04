@@ -169,3 +169,29 @@ trailing_backslash = [
 def test_trailing_backslash(filename, string, expected):
     warnings = util.check_file(m.TrailingBackslash, filename, string)
     assert warnings == expected
+
+
+typo_in_package_variable = [
+    ('any.mk', 'ANY_VAR = \n', []),  # catches https://bugs.busybox.net/show_bug.cgi?id=11271
+    ('./any.mk', 'ANY_VAR = \n', []),
+    ('./any.mk', 'ANY_VAR += \n', []),
+    ('any/any.mk', 'ANY_VAR = \n', []),
+    ('any.mk', 'OTHER_VAR = \n', [['any.mk:1: possible typo: OTHER_VAR -> *ANY*', 'OTHER_VAR = \n']]),
+    ('any.mk', 'OTHER_VAR += \n', [['any.mk:1: possible typo: OTHER_VAR -> *ANY*', 'OTHER_VAR += \n']]),
+    ('any.mk', 'OTHER_VAR= \n', [['any.mk:1: possible typo: OTHER_VAR -> *ANY*', 'OTHER_VAR= \n']]),
+    ('./any.mk', 'OTHER_VAR = \n', [['./any.mk:1: possible typo: OTHER_VAR -> *ANY*', 'OTHER_VAR = \n']]),
+    ('other.mk', 'ANY_VAR = \n', [['other.mk:1: possible typo: ANY_VAR -> *OTHER*', 'ANY_VAR = \n']]),
+    ('./any.mk', 'BR_LIBC = \n', []),
+    ('any.mk', 'ROOTFS_ANY_VAR += \n', []),
+    ('any.mk', 'HOST_ANY_VAR += \n', []),
+    ('any.mk', 'HOST_OTHER_VAR = \n', [['any.mk:1: possible typo: HOST_OTHER_VAR -> *ANY*', 'HOST_OTHER_VAR = \n']]),
+    ('any.mk', 'ANY_PROVIDES = other thing\nOTHER_VAR = \n', []),
+    ('any.mk', 'ANY_PROVIDES  =  thing  other \nOTHER_VAR = \n', []),
+    ('any.mk', 'ANY_PROVIDES = other\nOTHERS_VAR = \n', [['any.mk:2: possible typo: OTHERS_VAR -> *ANY*', 'OTHERS_VAR = \n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", typo_in_package_variable)
+def test_typo_in_package_variable(filename, string, expected):
+    warnings = util.check_file(m.TypoInPackageVariable, filename, string)
+    assert warnings == expected
