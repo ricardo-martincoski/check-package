@@ -144,3 +144,28 @@ space_before_backslash = [
 def test_space_before_backslash(filename, string, expected):
     warnings = util.check_file(m.SpaceBeforeBackslash, filename, string)
     assert warnings == expected
+
+
+trailing_backslash = [
+    ('any.mk', 'ANY = \n', []),
+    ('any.mk', 'ANY = \\\n', []),
+    ('any.mk', 'ANY = \\\n\\\n', []),
+    ('any.mk', 'ANY = \\\n\n', [['any.mk:1: remove trailing backslash', 'ANY = \\\n']]),
+    ('any.mk', 'ANY = \\\n     \n', [['any.mk:1: remove trailing backslash', 'ANY = \\\n']]),
+    ('any.mk', 'ANY = \\\n\t\n', [['any.mk:1: remove trailing backslash', 'ANY = \\\n']]),
+    ('any.mk', '# ANY = \\\n\n', []),
+    ('any.mk', 'ANY_CONF_ENV= \t\\\n\tap_cv_void_ptr_lt_long=no  \\\n\n',
+     [['any.mk:2: remove trailing backslash', '\tap_cv_void_ptr_lt_long=no  \\\n']]),
+    ('any.mk', 'ANY =  \t\t\\\n', []),
+    ('any.mk', 'ANY = \t \t\\\n', []),
+    ('any.mk', 'ANY = \t  \\\n', []),
+    # FIXME: These 2 don't work but TrailingSpace would catch them and after the user fixes that, this check function will find them
+    # ('any.mk', 'ANY = \\ \n\n', [['any.mk:1: remove trailing backslash', 'ANY = \\ \n']]),
+    # ('any.mk', 'ANY = \\\t\n\n', [['any.mk:1: remove trailing backslash', 'ANY = \\\t\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", trailing_backslash)
+def test_trailing_backslash(filename, string, expected):
+    warnings = util.check_file(m.TrailingBackslash, filename, string)
+    assert warnings == expected
