@@ -387,6 +387,8 @@ package/mkpasswd/mkpasswd.c: ignored
 package/mkpasswd/utils.c: ignored
 package/mkpasswd/utils.h: ignored
 package/mkpimage/mkpimage.c: ignored
+package/mmc-utils/0002-fix-overlapping-with-strncpy.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 1/1] mmc-utils: fix overlapping with strncpy
 package/modem-manager/S44modem-manager: ignored
 package/mongrel2/0002-Do-not-run-tests.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 4/4] Do not run tests.
