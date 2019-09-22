@@ -4,16 +4,30 @@ import checkpackagelib.lib_patch as m
 
 
 apply_order = [
-    ('0001-description.patch', '', []),  # catches https://bugs.busybox.net/show_bug.cgi?id=11271
-    ('path/0001-description.patch', '', []),
-    ('1-description.patch', '', []),
-    ('path/1-description.patch', '', []),
-    ('package-0001-description.patch', '', [
-     ['package-0001-description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
-    ('path/package-0001-description.patch', '', [
-     ['path/package-0001-description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
-    ('description.patch', '', [['description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
-    ('path/description.patch', '', [['path/description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
+    ('0001-description.patch',
+     '',
+     []),  # catches https://bugs.busybox.net/show_bug.cgi?id=11271
+    ('path/0001-description.patch',
+     '',
+     []),
+    ('1-description.patch',
+     '',
+     []),
+    ('path/1-description.patch',
+     '',
+     []),
+    ('package-0001-description.patch',
+     '',
+     [['package-0001-description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
+    ('path/package-0001-description.patch',
+     '',
+     [['path/package-0001-description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
+    ('description.patch',
+     '',
+     [['description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
+    ('path/description.patch',
+     '',
+     [['path/description.patch:0: use name <number>-<description>.patch (url#_providing_patches)']]),
     ]
 
 
@@ -24,11 +38,20 @@ def test_apply_order(filename, string, expected):
 
 
 numbered_subject = [
-    ('patch', '', []),
-    ('patch', 'Subject: [PATCH 24/105] text\n', []),
-    ('patch', 'Subject: [PATCH 24/105] text\ndiff --git a/configure.ac b/configure.ac\n', [
-     ["patch:1: generate your patches with 'git format-patch -N'", 'Subject: [PATCH 24/105] text\n']]),
-    ('patch', 'Subject: [PATCH] text\ndiff --git a/configure.ac b/configure.ac\n', []),
+    ('patch',
+     '',
+     []),
+    ('patch',
+     'Subject: [PATCH 24/105] text\n',
+     []),
+    ('patch',
+     'Subject: [PATCH 24/105] text\n'
+     'diff --git a/configure.ac b/configure.ac\n',
+     [["patch:1: generate your patches with 'git format-patch -N'",
+       'Subject: [PATCH 24/105] text\n']]),
+    ('patch', 'Subject: [PATCH] text\n'
+     'diff --git a/configure.ac b/configure.ac\n',
+     []),
     ]
 
 
@@ -39,11 +62,15 @@ def test_numbered_subject(filename, string, expected):
 
 
 sob = [
-    ('patch', 'Signed-off-by: John Doe <johndoe@example.com>\n', []),
-    ('patch', '', [
-     ['patch:0: missing Signed-off-by in the header (url#_format_and_licensing_of_the_package_patches)']]),
-    ('patch', 'Subject: [PATCH 24/105] text\n', [
-     ['patch:0: missing Signed-off-by in the header (url#_format_and_licensing_of_the_package_patches)']]),
+    ('patch',
+     'Signed-off-by: John Doe <johndoe@example.com>\n',
+     []),
+    ('patch',
+     '',
+     [['patch:0: missing Signed-off-by in the header (url#_format_and_licensing_of_the_package_patches)']]),
+    ('patch',
+     'Subject: [PATCH 24/105] text\n',
+     [['patch:0: missing Signed-off-by in the header (url#_format_and_licensing_of_the_package_patches)']]),
     ]
 
 
