@@ -80,3 +80,18 @@ utf8_characters = [
 def test_utf8_characters(filename, string, expected):
     warnings = util.check_file(m.Utf8Characters, filename, string)
     assert warnings == expected
+
+
+def test_all_check_functions_are_used():
+    import inspect
+    import checkpackagelib.lib_config as lib_config
+    import checkpackagelib.lib_hash as lib_hash
+    import checkpackagelib.lib_mk as lib_mk
+    import checkpackagelib.lib_patch as lib_patch
+    c_common = [c[0] for c in inspect.getmembers(m, inspect.isclass)]
+    c_config = [c[0] for c in inspect.getmembers(lib_config, inspect.isclass)]
+    c_hash = [c[0] for c in inspect.getmembers(lib_hash, inspect.isclass)]
+    c_mk = [c[0] for c in inspect.getmembers(lib_mk, inspect.isclass)]
+    c_patch = [c[0] for c in inspect.getmembers(lib_patch, inspect.isclass)]
+    c_all = c_config + c_hash + c_mk + c_patch
+    assert set(c_common) <= set(c_all)
