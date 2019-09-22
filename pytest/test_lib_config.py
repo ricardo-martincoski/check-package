@@ -95,6 +95,38 @@ def test_attributes_order(filename, string, expected):
     assert warnings == expected
 
 
+comments_menus_packages_order = [
+    ('package/Config.in',
+     'menu "Target packages"\n'
+     'source "package/busybox/Config.in"\n'
+     'source "package/skeleton/Config.in"\n',
+     []),
+    ('package/Config.in',
+     'source "package/skeleton/Config.in"\n'
+     'source "package/busybox/Config.in"\n',
+     [['package/Config.in:2: Packages in: ,\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: busybox',
+       'source "package/busybox/Config.in"\n']]),
+    ('package/Config.in',
+     'menu "Target packages"\n'
+     'source "package/skeleton/Config.in"\n'
+     'source "package/busybox/Config.in"\n',
+     [['package/Config.in:3: Packages in: menu "Target packages",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: busybox',
+       'source "package/busybox/Config.in"\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", comments_menus_packages_order)
+def test_comments_menus_packages_order(filename, string, expected):
+    warnings = util.check_file(m.CommentsMenusPackagesOrder, filename, string)
+    assert warnings == expected
+
+
 help_text = [
     ('any',
      'config BR2_PACKAGE_FOO\n'
