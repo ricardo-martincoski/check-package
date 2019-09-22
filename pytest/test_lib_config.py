@@ -118,6 +118,120 @@ comments_menus_packages_order = [
        "                     correct order: '-', '_', digits, capitals, lowercase;\n"
        '                     first incorrect package: busybox',
        'source "package/busybox/Config.in"\n']]),
+    ('package/Config.in.host',
+     'menu "Hardware handling"\n'
+     'menu "Firmware"\n'
+     'endmenu\n'
+     'source "package/usb_modeswitch/Config.in"\n'
+     'source "package/usbmount/Config.in"\n',
+     []),
+    ('package/Config.in.host',
+     'menu "Hardware handling"\n'
+     'menu "Firmware"\n'
+     'endmenu\n'
+     'source "package/usbmount/Config.in"\n'
+     'source "package/usb_modeswitch/Config.in"\n',
+     [['package/Config.in.host:5: Packages in: menu "Hardware handling",\n'
+       '                          are not alphabetically ordered;\n'
+       "                          correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                          first incorrect package: usb_modeswitch',
+       'source "package/usb_modeswitch/Config.in"\n']]),
+    ('any other file',
+     'menu "Hardware handling"\n'
+     'source "package/bbb/Config.in"\n'
+     'source "package/aaa/Config.in"\n',
+     []),
+    ('package/Config.in',
+     'menu "packages"\n'
+     'source "package/a_a/Config.in"\n'
+     'source "package/a-a/Config.in"\n'
+     'source "package/a1a/Config.in"\n'
+     'source "package/aAa/Config.in"\n'
+     'source "package/aaa/Config.in"\n',
+     [['package/Config.in:3: Packages in: menu "packages",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: a-a',
+       'source "package/a-a/Config.in"\n']]),
+    ('package/Config.in',
+     'menu "packages"\n'
+     'source "package/a-a/Config.in"\n'
+     'source "package/a1a/Config.in"\n'
+     'source "package/a_a/Config.in"\n'
+     'source "package/aAa/Config.in"\n'
+     'source "package/aaa/Config.in"\n',
+     [['package/Config.in:4: Packages in: menu "packages",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: a_a',
+       'source "package/a_a/Config.in"\n']]),
+    ('package/Config.in',
+     'menu "packages"\n'
+     'source "package/a-a/Config.in"\n'
+     'source "package/a_a/Config.in"\n'
+     'source "package/aAa/Config.in"\n'
+     'source "package/a1a/Config.in"\n'
+     'source "package/aaa/Config.in"\n',
+     [['package/Config.in:5: Packages in: menu "packages",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: a1a',
+       'source "package/a1a/Config.in"\n']]),
+    ('package/Config.in',
+     'menu "packages"\n'
+     'source "package/a-a/Config.in"\n'
+     'source "package/a_a/Config.in"\n'
+     'source "package/a1a/Config.in"\n'
+     'source "package/aaa/Config.in"\n'
+     'source "package/aAa/Config.in"\n',
+     [['package/Config.in:6: Packages in: menu "packages",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: aAa',
+       'source "package/aAa/Config.in"\n']]),
+    ('package/Config.in',
+     'menu "packages"\n'
+     'source "package/a-a/Config.in"\n'
+     'source "package/a_a/Config.in"\n'
+     'source "package/a1a/Config.in"\n'
+     'source "package/aAa/Config.in"\n'
+     'source "package/aaa/Config.in"\n',
+     []),
+    ('package/Config.in',
+     'menu "Other"\n'
+     'source "package/linux-pam/Config.in"\n'
+     'if BR2_PACKAGE_LINUX_PAM\n'
+     'comment "linux-pam plugins"\n'
+     'source "package/libpam-radius-auth/Config.in"\n'
+     'source "package/libpam-tacplus/Config.in"\n'
+     'endif\n'
+     'source "package/liquid-dsp/Config.in"\n',
+     []),
+    ('package/Config.in',
+     'menu "Other"\n'
+     'source "package/linux-pam/Config.in"\n'
+     'if BR2_PACKAGE_LINUX_PAM\n'
+     'comment "linux-pam plugins"\n'
+     'source "package/libpam-tacplus/Config.in"\n'
+     'source "package/libpam-radius-auth/Config.in"\n'
+     'endif\n'
+     'source "package/liquid-dsp/Config.in"\n',
+     [['package/Config.in:6: Packages in: comment "linux-pam plugins",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: libpam-radius-auth',
+       'source "package/libpam-radius-auth/Config.in"\n']]),
+    ('package/Config.in',
+     'menu "Other"\n'
+     'source "package/linux-pam/Config.in"\n'
+     'source "package/libpam-radius-auth/Config.in"\n'
+     'source "package/libpam-tacplus/Config.in"\n'
+     'source "package/liquid-dsp/Config.in"\n',
+     [['package/Config.in:3: Packages in: menu "Other",\n'
+       '                     are not alphabetically ordered;\n'
+       "                     correct order: '-', '_', digits, capitals, lowercase;\n"
+       '                     first incorrect package: libpam-radius-auth',
+       'source "package/libpam-radius-auth/Config.in"\n']]),
     ]
 
 
