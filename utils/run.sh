@@ -36,7 +36,7 @@ main() {
     if [ ! -e "${br2_external_dir}/external.desc" ]; then
         printf "error: %s: not a br2-external\n" "${br2_external_dir}" >&2; exit 1
     fi
-    if [ ! -e "${output_dir}/.br-external.mk" ]; then
+    if [ ! -e "${output_dir}/.br2-external.mk" ]; then
         printf "error: %s: not an output dir\n" "${output_dir}" >&2; exit 1
     fi
     if [ ! -z "${python_interpreter}" ]; then
