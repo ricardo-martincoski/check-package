@@ -6,6 +6,7 @@ import checkpackagelib.lib as m
 consecutive_empty_lines = [
     ('any', '', []),
     ('any', '\n', []),
+    ('any', '\n ', [['any:2: consecutive empty lines']]),
     ('any', '\n\n', [['any:2: consecutive empty lines']]),
     ('any', '\n\n\n', [['any:2: consecutive empty lines'], ['any:3: consecutive empty lines']]),
     ('any', ' \n\t\n', [['any:2: consecutive empty lines']]),
@@ -21,6 +22,8 @@ def test_consecutive_empty_lines(filename, string, expected):
 empty_last_line = [
     ('any', '', []),
     ('any', '\n', [['any:1: empty line at end of file']]),
+    ('any', ' \n', [['any:1: empty line at end of file']]),
+    ('any', ' ', [['any:1: empty line at end of file']]),
     ('any', '\n\n', [['any:2: empty line at end of file']]),
     ('any', '\n\n\n', [['any:3: empty line at end of file']]),
     ('any', ' \n\t\n', [['any:2: empty line at end of file']]),
@@ -38,6 +41,7 @@ newline_at_eof = [
     ('any', '\ntext', [['any:2: missing newline at end of file', 'text']]),
     ('any', '\n ', [['any:2: missing newline at end of file', ' ']]),
     ('any', '\n\t', [['any:2: missing newline at end of file', '\t']]),
+    ('any', ' ', [['any:1: missing newline at end of file', ' ']]),
     ]
 
 
