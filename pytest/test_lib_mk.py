@@ -61,6 +61,28 @@ def test_indent(filename, string, expected):
     assert warnings == expected
 
 
+overridden_variable = [
+    ('any.mk', 'VAR1 = VALUE1\nVAR1 = VALUE1\n', [['any.mk:2: unconditional override of variable VAR1', 'VAR1 = VALUE1\n']]),
+    ('any.mk', 'VAR_1 = VALUE1\n', []),
+    ('any.mk', 'VAR_1 = VALUE1\nVAR_1 = VALUE1\n', [['any.mk:2: unconditional override of variable VAR_1', 'VAR_1 = VALUE1\n']]),
+    ('any.mk', 'VAR_1 = VALUE1\nVAR_1 = VALUE2\n', [['any.mk:2: unconditional override of variable VAR_1', 'VAR_1 = VALUE2\n']]),
+    ('any.mk', 'VAR_1= VALUE1\nVAR_1 =VALUE2\n', [['any.mk:2: unconditional override of variable VAR_1', 'VAR_1 =VALUE2\n']]),
+    ('any.mk', 'VAR_1 = VALUE1\nVAR_1 := VALUE2\n', [['any.mk:2: unconditional override of variable VAR_1', 'VAR_1 := VALUE2\n']]),
+    ('any.mk', 'VAR_1 = VALUE1\nVAR_1 += VALUE2\n', []),
+    ('any.mk', 'VAR_1 = VALUE1\nVAR_1 := $(VAR_1), VALUE2\n',
+     [['any.mk:2: unconditional override of variable VAR_1', 'VAR_1 := $(VAR_1), VALUE2\n']]),
+    ('any.mk', 'VAR_1 = VALUE1\nifeq (condition)\nVAR_1 := $(VAR_1), VALUE2\n', []),
+    ('any.mk', 'VAR_1 = VALUE1\nifeq (condition)\nVAR_1 := $(VAR_1), VALUE2\nendif\nVAR_1 := $(VAR_1), VALUE2\n',
+     [['any.mk:5: unconditional override of variable VAR_1', 'VAR_1 := $(VAR_1), VALUE2\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", overridden_variable)
+def test_overridden_variable(filename, string, expected):
+    warnings = util.check_file(m.OverriddenVariable, filename, string)
+    assert warnings == expected
+
+
 package_header = [
     ('any', '# very useful comment\n',
      [['any:1: should be 80 hashes (url#writing-rules-mk)',
