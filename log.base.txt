@@ -1,5 +1,5 @@
 usage: check-package [-h] [--br2-external] [--manual-url MANUAL_URL]
-                     [--verbose] [--include-only INCLUDE_LIST]
+                     [--verbose] [--quiet] [--include-only INCLUDE_LIST]
                      [--exclude EXCLUDE_LIST] [--dry-run]
                      [F [F ...]]
 
@@ -13,6 +13,7 @@ optional arguments:
   --manual-url MANUAL_URL
                         default: http://nightly.buildroot.org/
   --verbose, -v
+  --quiet, -q
   --include-only INCLUDE_LIST
                         run only the specified functions (debug)
   --exclude EXCLUDE_LIST
@@ -36,11 +37,8 @@ package/arptables/0003-src-Remove-support-for-libc5.patch:4: generate your patch
 Subject: [PATCH 2/2] src: Remove support for libc5
 package/arptables/0004-Fix-musl-build-issue.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 4/4] Fix musl build issue
-package/at/0001-configure.ac-convert-AC_TRY_COMPILE-AC_COMPILE_IFELS.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/5] configure.ac: convert AC_TRY_COMPILE -> AC_COMPILE_IFELSE
-package/at/0002-Makefile.in-replace-IROOT-by-DESTDIR.patch:4: generate your patches with 'git format-patch -N'
+package/at/0001-Makefile.in-replace-IROOT-by-DESTDIR.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 5/5] Makefile.in: replace IROOT by DESTDIR
-package/at/0005-parsetime.l-include-config-h.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/at/S99at: ignored
 package/audiofile/0001-Fix-pkg-config-for-static-linking.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Fix pkg-config for static linking
@@ -56,28 +54,21 @@ package/avahi/avahi_tmpfiles.conf: ignored
 package/babeld/S50babeld: ignored
 package/babeld/babeld.service: ignored
 package/bandwidthd/bandwidthd.service: ignored
-package/bc/01_array_initialize.patch:0: use name <number>-<description>.patch (http://nightly.buildroot.org/#_providing_patches)
-package/bc/01_array_initialize.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/bc/02_notice_read_write_errors.patch:0: use name <number>-<description>.patch (http://nightly.buildroot.org/#_providing_patches)
-package/bc/02_notice_read_write_errors.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/bc/03_use_appropiate_makeinfo.patch:0: use name <number>-<description>.patch (http://nightly.buildroot.org/#_providing_patches)
 package/bellagio/0001-drop-werror.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/bind/S81named: ignored
 package/bind/named.service: ignored
-package/bison/0001-fflush-adjust-to-glibc-2.28-libio.h-removal.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] fflush: adjust to glibc 2.28 libio.h removal
-package/bison/0002-fflush-be-more-paranoid-about-libio.h-change.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] fflush: be more paranoid about libio.h change
 package/bluez_utils/0003-fix-compilation-issues-with-musl.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] fix compilation issues with musl.
 package/boa/boa.conf: ignored
 package/boa/mime.types: ignored
 package/boinc/S99boinc-client: ignored
+package/brickd/S70brickd: ignored
 package/bridge-utils/0001-build-system.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/brltty/S10brltty: ignored
 package/brltty/brltty.service: ignored
 package/busybox/S01syslogd: ignored
 package/busybox/S02klogd: ignored
+package/busybox/S02sysctl: ignored
 package/busybox/S10mdev: ignored
 package/busybox/S15watchdog: ignored
 package/busybox/S50telnet: ignored
@@ -117,10 +108,6 @@ package/darkhttpd/darkhttpd.service: ignored
 package/dbus/S30dbus: ignored
 package/dcron/S90dcron: ignored
 package/dcron/dcron.service: ignored
-package/dhcp/0003-Correct-buffer-overrun-in-pretty_print_option.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] Correct buffer overrun in pretty_print_option
-package/dhcp/0004-Corrected-refcnt-loss-in-option-parsing.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] Corrected refcnt loss in option parsing
 package/dhcp/S80dhcp-relay: ignored
 package/dhcp/S80dhcp-server: ignored
 package/dhcp/dhclient-script: ignored
@@ -142,13 +129,12 @@ Subject: [PATCH 1/1] fix compilation under musl
 package/dmraid/S20dmraid: ignored
 package/dnsmasq/S80dnsmasq: ignored
 package/doc-asciidoc.mk: ignored
+package/docker-engine/S60dockerd: ignored
 package/domoticz/S99domoticz: ignored
 package/domoticz/domoticz.service: ignored
 package/dropbear/S50dropbear: ignored
 package/dropbear/dropbear.service: ignored
 package/dropbear/etc-pam.d-sshd: ignored
-package/dtc/0002-Fix-include-guards-for-older-kernel-u-boot-sources.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix include guards for older kernel/u-boot sources
 package/ejabberd/S50ejabberd: ignored
 package/ejabberd/check-erlang-lib: ignored
 package/erlang-p1-sip/0001-fix-includes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -162,8 +148,6 @@ package/faifa/0002-hpav_cfg.c-do-not-include-linux-if_ether.h-for-musl-.patch:4:
 Subject: [PATCH 1/1] hpav_cfg.c: do not include linux/if_ether.h for musl
 package/fail2ban/S60fail2ban: ignored
 package/fakedate/fakedate: ignored
-package/fakeroot/0002-communicate-check-return-status-of-msgrcv.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] communicate: check return status of msgrcv()
 package/fbv/0002-cross.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/fbv/0003-fix-24bpp-support-on-big-endian.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/fbv/0006-include.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -178,17 +162,6 @@ package/freescale-imx/imx-uuc/S80imx-uuc: ignored
 package/freescale-imx/imx-uuc/imx-uuc.service: ignored
 package/gadgetfs-test/0002-rename-include-usb_gadgetfs-to-usb-dir.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gamin/0002-no-const-return.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/4.9.4/100-uclibc-conf.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/4.9.4/1000-powerpc-link-with-math-lib.patch.conditional: ignored
-package/gcc/4.9.4/301-missing-execinfo_h.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/4.9.4/810-arm-softfloat-libgcc.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/4.9.4/830-arm_unbreak_armv4t.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/4.9.4/871-xtensa-reimplement-register-spilling.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/3] xtensa: reimplement register spilling
-package/gcc/4.9.4/872-xtensa-use-unwind-dw2-fde-dip-instead-of-unwind-dw2-.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/3] xtensa: use unwind-dw2-fde-dip instead of unwind-dw2-fde
-package/gcc/4.9.4/873-xtensa-fix-_Unwind_GetCFA.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 3/3] xtensa: fix _Unwind_GetCFA
 package/gcc/5.5.0/100-uclibc-conf.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gcc/5.5.0/301-missing-execinfo_h.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gcc/5.5.0/810-arm-softfloat-libgcc.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -205,16 +178,15 @@ package/gcc/5.5.0/906-mips-musl-support.patch:0: missing Signed-off-by in the he
 package/gcc/5.5.0/907-x86-musl-support.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gcc/5.5.0/908-arm-musl-support.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gcc/5.5.0/909-aarch64-musl-support.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/6.5.0/100-uclibc-conf.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/6.5.0/301-missing-execinfo_h.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/6.5.0/810-arm-softfloat-libgcc.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/gcc/6.5.0/830-arm_unbreak_armv4t.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gcc/or1k-musl-5.4.0-20170218/100-uclibc-conf.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gcc/or1k-musl-5.4.0-20170218/301-missing-execinfo_h.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gdb/gdb-python-config: ignored
 package/genromfs/0001-build-system.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/gerbera/S99gerbera: ignored
+package/gerbera/config.xml: ignored
 package/getent/getent: ignored
-package/gettext/0001-error_print_progname.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/gettext-gnu/0001-error_print_progname.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/gettext-tiny/gettext-wrapper: ignored
 package/glibc/nsswitch.conf: ignored
 package/google-breakpad/gen-syms.sh: ignored
 package/gpm/0003-src-Makefile.in-Really-install-unversioned-solibrary.patch:4: generate your patches with 'git format-patch -N'
@@ -224,12 +196,8 @@ package/gqview/0001-make.patch:0: missing Signed-off-by in the header (http://ni
 package/gstreamer/gst-plugins-good/0002-v4l2-fix-compilation-against-newer-kernel-headers.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/gtest/gmock.pc: ignored
 package/gtest/gtest.pc: ignored
-package/gupnp-av/0001-Fix-static-library-linking-with-gupnp.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix static library linking with gupnp
 package/gutenprint/0002-cups-support-replaces-static-with-static-libtool-lib.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] cups support: replaces -static with -static-libtool-libs
-package/gutenprint/0003-print-olympus.c-fix-endianness-detection.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] print-olympus.c: fix endianness detection
 package/haveged/S21haveged: ignored
 package/haveged/haveged.service: ignored
 package/i2pd/S99i2pd: ignored
@@ -255,8 +223,6 @@ package/initscripts/init.d/rcK: ignored
 package/initscripts/init.d/rcS: ignored
 package/input-event-daemon/S99input-event-daemon: ignored
 package/input-event-daemon/input-event-daemon.service: ignored
-package/iperf3/0002-Fix-build-using-musl-libc.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix build using musl libc
 package/irda-utils/0001-daemon.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/irda-utils/0002-nommu.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/irda-utils/0003-subdir.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -281,8 +247,6 @@ package/libcgicc/0001-disable-documentation-option.patch:0: missing Signed-off-b
 package/libdnet/0001-python-gcc.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libdnet/0002-python-makefile.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libdvdnav/0001-do-not-match-nios2-as-os2.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/libevent/0001-Disable-building-test-programs.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] Disable building test programs
 package/libfcgi/0005-disable-examples.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libftdi/0001_pkgconfig_libusb.patch:0: use name <number>-<description>.patch (http://nightly.buildroot.org/#_providing_patches)
 package/libftdi/0001_pkgconfig_libusb.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -291,7 +255,6 @@ package/libftdi1/0001-cmake-use-the-standard-CMake-flag-to-drive-the-share.patch
 Subject: [PATCH 1/2] cmake: use the standard CMake flag to drive the shared
 package/libftdi1/0002-cmake-fix-FindUSB1.cmake.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] cmake: fix FindUSB1.cmake
-package/libgcrypt/0001-reconfigure.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libid3tag/id3tag.pc: ignored
 package/libiio/S99iiod: ignored
 package/libiqrf/0001-cmake-handle-static-library-and-find-required-thread.patch:4: generate your patches with 'git format-patch -N'
@@ -316,15 +279,12 @@ package/libmad/mad.pc: ignored
 package/libndp/0001-ndptool.c-Fix-musl-build.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] ndptool.c: Fix musl build
 package/libnet/0001-support-musl-libc.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/libnftnl/0002-Add-Libs.private-field-to-libnftnl.pc.patch:4: generate your patches with 'git format-patch -N'
+package/libnftnl/0001-Add-Libs.private-field-to-libnftnl.pc.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] Add Libs.private field to libnftnl.pc
 package/libnl/0001-build-add-Libs.private-field-in-libnl-pkg-config-fil.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] build: add Libs.private field in libnl pkg-config file
 package/libnss/nss.pc.in: ignored
-package/libshout/0001-Fix-THEORA-SPEEX-_LDFLAGS-typo.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] Fix {THEORA,SPEEX}_LDFLAGS typo
-package/libshout/0002-Make-sure-SHOUT_REQUIRES-contains-OpenSSL.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] Make sure @SHOUT_REQUIRES@ contains OpenSSL
+package/libsigsegv/0003-Improve-support-for-Linux-nds32.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/libtirpc/0001-Disable-parts-of-TIRPC-requiring-NIS-support.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Disable parts of TIRPC requiring NIS support
 package/libva-intel-driver/0001-Check-the-interface-from-libva-first.patch:4: generate your patches with 'git format-patch -N'
@@ -355,11 +315,12 @@ package/log4cxx/0002-missing-includes.patch:0: missing Signed-off-by in the head
 package/log4cxx/0003-missing-includes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/logrotate/logrotate.conf: ignored
 package/lsof/0001-makefile.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/lsof/0002-noportmap.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/lsof/0002-remove-susvlegacy-funcs.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/lsof/0003-override-cflags.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/lsof/0004-remove-susvlegacy-funcs.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/lua/lua.pc.in: ignored
+package/luarocks/buildroot.lua: ignored
 package/luarocks/luarocks-br-config.lua: ignored
+package/luv/libluv.pc.in: ignored
 package/m4/0002-fflush-be-more-paranoid-about-libio.h-change.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 2/2] fflush: be more paranoid about libio.h change
 package/madplay/0001-switch-to-new-alsa-api.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
@@ -371,8 +332,12 @@ package/mariadb/S97mysqld: ignored
 package/mariadb/mysqld.service: ignored
 package/matchbox-keyboard/mb-applet-kbd-wrapper.sh: ignored
 package/mcrypt/0001-CVE-2012-4409.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/mender/S42mender: ignored
+package/mender/artifact_info: ignored
+package/mender/device_type: ignored
 package/mender/mender.conf: ignored
 package/mender/mender.service: ignored
+package/mender/readme.txt: ignored
 package/mender/server.crt: ignored
 package/meson/cross-compilation.conf.in: ignored
 package/metacity/Xsession: ignored
@@ -394,13 +359,10 @@ Subject: [PATCH 4/4] Do not run tests.
 package/mongrel2/0003-Fix-Makefiles-for-cross-compilation.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Fix Makefiles for cross-compilation
 package/mosquitto/S50mosquitto: ignored
-package/mosquitto/mosquitto.service: ignored
 package/motion/S99motion: ignored
 package/motion/motion.service: ignored
 package/mpd/S95mpd: ignored
 package/mpd/mpd.conf: ignored
-package/mrouted/0001-DVMRP-report-missing-subnet.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] DVMRP report missing subnet
 package/mtdev2tuio/0001-Fix-build-with-musl-libc.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Fix build with musl libc
 package/musepack/0002-cmake-use-the-standard-CMake-flag-to-drive-the-share.patch:4: generate your patches with 'git format-patch -N'
@@ -433,6 +395,7 @@ package/nodm/S90nodm: ignored
 package/nodm/nodm.pam: ignored
 package/nss-pam-ldapd/S45nslcd: ignored
 package/nss-pam-ldapd/nslcd.service: ignored
+package/ntp/S48sntp: ignored
 package/ntp/S49ntp: ignored
 package/ntp/ntpd.etc.conf: ignored
 package/ntp/ntpd.service: ignored
@@ -441,7 +404,6 @@ package/nvidia-driver/gl.pc: ignored
 package/nvidia-tegra23/nvidia-tegra23-binaries/egl.pc: ignored
 package/nvidia-tegra23/nvidia-tegra23-binaries/gles.pc: ignored
 package/nvidia-tegra23/nvidia-tegra23-binaries/glesv2.pc: ignored
-package/odroid-scripts/S02odroidc2_fb: ignored
 package/ofono/S46ofono: ignored
 package/olsr/S50olsr: ignored
 package/olsr/olsr.service: ignored
@@ -456,19 +418,17 @@ package/openntpd/ntpd.service: ignored
 package/openpgm/0003-Rework-headers-includes-to-fix-build-with-musl-libc.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Rework headers includes to fix build with musl libc
 package/openssh/S50sshd: ignored
+package/openssh/sshd-sysusers.conf: ignored
 package/openssh/sshd.service: ignored
 package/openvmtools/S10vmtoolsd: ignored
 package/openvmtools/shutdown: ignored
 package/openvmtools/vmtoolsd.service: ignored
 package/openvpn/S60openvpn: ignored
-package/openzwave/0002-Fix-warning-on-wcsdup-implicit-declaration.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] Fix warning on wcsdup implicit declaration
-package/openzwave/0003-Ensure-correct-git-repository-path.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] Ensure correct git repository path
+package/optee-client/S30optee: ignored
 package/oracle-mysql/S97mysqld: ignored
 package/oracle-mysql/mysqld.service: ignored
-package/owfs/S25owserver: ignored
-package/owfs/S30owfs: ignored
+package/owfs/S55owserver: ignored
+package/owfs/S60owfs: ignored
 package/php/php-fpm.conf: ignored
 package/pkg-autotools.mk: ignored
 package/pkg-cmake.mk: ignored
@@ -491,17 +451,12 @@ package/postgresql/S50postgresql: ignored
 package/postgresql/pg_config: ignored
 package/postgresql/postgresql.service: ignored
 package/pppd/0001-Move-netinet-in.h-above-linux-header-includes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
+package/procps-ng/S02sysctl: ignored
 package/proftpd/0001-fix-kernel-header-capability-version.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/proftpd/S50proftpd: ignored
 package/proftpd/proftpd.service: ignored
 package/prosody/S50prosody: ignored
 package/pru-software-support/readme.txt: ignored
-package/pseudo/0001-Fix-mixed-tab-space-indentation.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/3] Fix mixed tab/space indentation
-package/pseudo/0002-Fix-missing-parentheses-at-print.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/3] Fix missing parentheses at print
-package/pseudo/0003-Make-it-compatible-with-python3.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 3/3] Make it compatible with python3
 package/psplash/psplash-quit.service: ignored
 package/psplash/psplash-start.service: ignored
 package/ptpd/S65ptpd: ignored
@@ -510,24 +465,14 @@ package/ptpd2/S65ptpd2: ignored
 package/ptpd2/ptpd2.service: ignored
 package/pulseaudio/S50pulseaudio: ignored
 package/pulseaudio/pulseaudio.service: ignored
-package/python-psycopg2/0001-setup.py-avoid-installing-tests-to-site-packages.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] setup.py: avoid installing tests to site-packages
 package/python-setuptools/0001-add-executable.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] add executable
 package/python-web2py/S51web2py: ignored
 package/python-web2py/web2py.service: ignored
 package/python3-setuptools/0001-add-executable.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] add executable
-package/qt/0004-fix-const-atomics.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/qt/0007-Add-initial-support-of-ARC-architecture.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] Add initial support of ARC architecture
-package/qt/0007-Add-initial-support-of-ARC-architecture.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/qt/0008-Prevent-unaligned-access-on-ARC.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] Prevent unaligned access on ARC
-package/qt/0008-Prevent-unaligned-access-on-ARC.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/qt/0012-OpenGL-EGL-Avoid-X11-header-collision.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] OpenGL/EGL: Avoid X11 header collision
-package/qt/powervr.ini: ignored
+package/qt5/qt5base/5.6.3/0003-libressl-add-fpermissive-gcc-flag-to-allow-compilati.patch:4: generate your patches with 'git format-patch -N'
+Subject: [PATCH 1/1] libressl - add -fpermissive gcc flag to allow
 package/qt5/qt5base/qmake.conf.in: ignored
 package/qt5/qt5base/qplatformdefs.h: ignored
 package/qt5/qt5base/qt.conf.in: ignored
@@ -564,10 +509,6 @@ package/rpi-firmware/cmdline.txt: ignored
 package/rpi-firmware/config.txt: ignored
 package/rpi-userland/S94vcfiled: ignored
 package/rpi-userland/vcfiled.service: ignored
-package/rpm/0003-Detect-bfd.h-to-enable-disable-sepdebugcrcfix-buildi.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/2] Detect bfd.h to enable/disable sepdebugcrcfix building
-package/rpm/0004-tools-sepdebugcrcfix.c-fix-build-with-recent-binutil.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 2/2] tools/sepdebugcrcfix.c: fix build with recent binutils
 package/rsyslog/S01rsyslogd: ignored
 package/rubix/0002-misc-fixes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/rygel/S99rygel: ignored
@@ -582,6 +523,15 @@ package/ser2net/S50ser2net: ignored
 package/shairport-sync/S99shairport-sync: ignored
 package/sispmctl/0001-configure-add-pkg-config-support.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] configure: add pkg-config support
+package/skeleton-init-openrc/skeleton/dev/log: ignored
+package/skeleton-init-openrc/skeleton/etc/fstab: ignored
+package/skeleton-init-openrc/skeleton/var/cache: ignored
+package/skeleton-init-openrc/skeleton/var/lib/misc: ignored
+package/skeleton-init-openrc/skeleton/var/lock: ignored
+package/skeleton-init-openrc/skeleton/var/log: ignored
+package/skeleton-init-openrc/skeleton/var/run: ignored
+package/skeleton-init-openrc/skeleton/var/spool: ignored
+package/skeleton-init-openrc/skeleton/var/tmp: ignored
 package/skeleton-init-sysv/skeleton/dev/log: ignored
 package/skeleton-init-sysv/skeleton/dev/pts/.empty: ignored
 package/skeleton-init-sysv/skeleton/dev/shm/.empty: ignored
@@ -596,6 +546,7 @@ package/skeleton-init-sysv/skeleton/var/tmp: ignored
 package/smstools3/S50smsd: ignored
 package/sofia-sip/0001-soa_tag.h-reintroduce-soatag_local_sdp_str_ref.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/squid/S97squid: ignored
+package/sshguard/S49sshguard: ignored
 package/sslh/S35sslh: ignored
 package/stella/0001-Add-cross-compilation-support.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/2] Add cross-compilation support
@@ -605,12 +556,11 @@ package/stunnel/S50stunnel: ignored
 package/sudo/sudo.pam: ignored
 package/sunxi-mali-mainline/egl.pc: ignored
 package/sunxi-mali-mainline/glesv2.pc: ignored
-package/sunxi-mali/S80mali: ignored
-package/sunxi-mali/egl.pc: ignored
-package/sunxi-mali/glesv2.pc: ignored
 package/supervisor/S99supervisord: ignored
 package/supervisor/supervisord.conf: ignored
 package/supervisor/supervisord.service: ignored
+package/suricata/S99suricata: ignored
+package/suricata/suricata.service: ignored
 package/swig/0001-Add-Node-7.x-aka-V8-5.2-support.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/2] Add Node 7.x aka V8 5.2+ support
 package/swig/0002-Remove-warnings-on-Node-6.x-aka-V8-5.0-and-5.1.patch:4: generate your patches with 'git format-patch -N'
@@ -624,6 +574,8 @@ package/sysklogd/syslogd.service: ignored
 package/syslog-ng/S01syslog-ng: ignored
 package/syslog-ng/syslog-ng.conf: ignored
 package/syslog-ng/syslog-ng@default: ignored
+package/systemd/boot-files/buildroot.conf: ignored
+package/systemd/boot-files/loader.conf: ignored
 package/systemd/dhcp.network: ignored
 package/sysvinit/inittab: ignored
 package/targetcli-fb/S50target: ignored
@@ -631,6 +583,7 @@ package/targetcli-fb/target.service: ignored
 package/tcf-agent/S55tcf-agent: ignored
 package/tcf-agent/tcf-agent.service: ignored
 package/tftpd/S80tftpd-hpa: ignored
+package/thttpd/S90thttpd: ignored
 package/thttpd/thttpd.service: ignored
 package/ti-gfx/S80ti-gfx: ignored
 package/ti-gfx/egl.pc: ignored
@@ -668,10 +621,8 @@ Subject: [PATCH 1/2] ext: Update to newer swap macros
 package/x11r7/xdriver_xf86-video-mach64/0001-cross-compile.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/x11r7/xdriver_xf86-video-mga/0001-misc-fixes.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/x11r7/xdriver_xf86-video-savage/0001-cross-compile.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
-package/x11r7/xdriver_xf86-video-sis/0001-cross.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/x11r7/xdriver_xf86-video-tdfx/0001-cross.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/x11r7/xserver_xorg-server/S40xorg: ignored
-package/xl2tp/0001-legacy.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/xl2tp/xl2tpd: ignored
 package/xvkbd/0001-makefile.patch:0: missing Signed-off-by in the header (http://nightly.buildroot.org/#_format_and_licensing_of_the_package_patches)
 package/zip/0001-configure-Remove-Check-C-compiler-type-optimization-.patch:4: generate your patches with 'git format-patch -N'
@@ -784,6 +735,8 @@ package/package1/package1.mk:28: use only one space before backslash
 PACKAGE1_DEPENDENCIES += depend5< tab  >\
 package/package1/package1.mk:29: remove trailing backslash
 < tab  >depend4 \
+package/package1/package1.mk:31: unconditional override of variable PACKAGE1_DEPENDENCIES
+PACKAGE1_DEPENDENCIES = overwriting
 package/package1/package1.mk:33: possible typo: LINUX_DEPENDENCIES -> *PACKAGE1*
 LINUX_DEPENDENCIES = messing with others
 package/package1/package1.mk:34: possible typo: PACKACE1_DEPENDENCIES -> *PACKAGE1*
