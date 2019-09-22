@@ -65,3 +65,18 @@ trailing_space = [
 def test_trailing_space(filename, string, expected):
     warnings = util.check_file(m.TrailingSpace, filename, string)
     assert warnings == expected
+
+
+utf8_characters = [
+    ('any', 'text\n', []),
+    ('any', chr(60), []),
+    ('any', chr(129), [['any:1: line contains UTF-8 characters', '\x81']]),
+    ('any', 'text\ntext {0} text\n{0}\n'.format(chr(200)),
+     [['any:2: line contains UTF-8 characters', 'text \xc8 text\n'], ['any:3: line contains UTF-8 characters', '\xc8\n']]),
+    ]
+
+
+@pytest.mark.parametrize("filename,string,expected", utf8_characters)
+def test_utf8_characters(filename, string, expected):
+    warnings = util.check_file(m.Utf8Characters, filename, string)
+    assert warnings == expected
