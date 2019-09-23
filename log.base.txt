@@ -417,6 +417,8 @@ package/openntpd/S49ntp: ignored
 package/openntpd/ntpd.service: ignored
 package/openpgm/0003-Rework-headers-includes-to-fix-build-with-musl-libc.patch:4: generate your patches with 'git format-patch -N'
 Subject: [PATCH 1/1] Rework headers includes to fix build with musl libc
+package/openrc/getty: ignored
+package/openrc/sysv-rcs: ignored
 package/openssh/S50sshd: ignored
 package/openssh/sshd-sysusers.conf: ignored
 package/openssh/sshd.service: ignored
@@ -521,10 +523,11 @@ package/sdl_mixer/0001-Add-Libs.private-field-to-pkg-config-file.patch:4: genera
 Subject: [PATCH 1/1] Add 'Libs.private' field to pkg-config file
 package/ser2net/S50ser2net: ignored
 package/shairport-sync/S99shairport-sync: ignored
-package/sispmctl/0001-configure-add-pkg-config-support.patch:4: generate your patches with 'git format-patch -N'
-Subject: [PATCH 1/1] configure: add pkg-config support
 package/skeleton-init-openrc/skeleton/dev/log: ignored
+package/skeleton-init-openrc/skeleton/etc/conf.d/.empty: ignored
 package/skeleton-init-openrc/skeleton/etc/fstab: ignored
+package/skeleton-init-openrc/skeleton/etc/runlevels/default/.empty: ignored
+package/skeleton-init-openrc/skeleton/etc/runlevels/default/sysv-rcs: ignored
 package/skeleton-init-openrc/skeleton/var/cache: ignored
 package/skeleton-init-openrc/skeleton/var/lib/misc: ignored
 package/skeleton-init-openrc/skeleton/var/lock: ignored
