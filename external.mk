@@ -18,12 +18,10 @@ check-package-reference-log:
 	)
 
 check-package-python-version:
-	$(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/utils/run.sh -b $(TOPDIR) -e $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH) -o $(BASE_DIR) -p python2 -l $(BASE_DIR)/log.python2.txt
 	$(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/utils/run.sh -b $(TOPDIR) -e $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH) -o $(BASE_DIR) -p python3 -l $(BASE_DIR)/log.python3.txt
-	$(foreach log,log.python2.txt log.python3.txt, \
+	$(foreach log,log.python3.txt, \
 		diff -U3 $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/log.base.txt $(BASE_DIR)/$(log) > $(BASE_DIR)/log.diff; \
 	)
-	python2 -m flake8 $(FLAKE8_IGNORE) --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
 	python3 -m flake8 $(FLAKE8_IGNORE) --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
 
 unit-tests:
@@ -38,4 +36,4 @@ unit-tests:
 		ln -snf $(file) $(BASE_DIR)/pytest/ ;\
 	)
 	cd $(BASE_DIR)/pytest && pytest
-	cd $(BASE_DIR)/pytest && python2 -m flake8 --stat
+	cd $(BASE_DIR)/pytest && python3 -m flake8 --stat
