@@ -1,0 +1,4 @@
+[flake8]
+max-line-length=132
+# FIXME: workaround for unit tests using new flake8
+ignore = W391,W605,E123

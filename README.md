@@ -4,7 +4,6 @@ Helper files to test changes in check-package script.
 
 ### Prerequisites
 
-* a clone from [buildroot](https://github.com/buildroot/buildroot.git)
 * [Buildroot prerequisites](http://nightly.buildroot.org/#requirement-mandatory)
 * Python 2 (2.6 or any later)
 * Python 3 (3.6 or any later)
@@ -14,8 +13,7 @@ Helper files to test changes in check-package script.
 ### Installing
 
 ```
-make -C /path/to/buidroot BR2_EXTERNAL=/path/to/this-repo O=/path/to/output defconfig
-cd /path/to/output
+make checkout
 ```
 
 Before adding any changes to the check-package script in the buildroot tree,

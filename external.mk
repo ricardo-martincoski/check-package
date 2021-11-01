@@ -2,6 +2,11 @@ include $(sort $(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/packag
 
 check-check-package: check-package-reference-log check-package-python-version unit-tests
 
+# FIXME: workaround for old versions of check-package
+FLAKE8_IGNORE += --ignore=W605,E123
+# FIXME: workaround for old versions of buildroot/.flake8
+FLAKE8_IGNORE += --max-line-length=132
+
 update-reference-log:
 	$(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/utils/run.sh -b $(TOPDIR) -e $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH) -o $(BASE_DIR) -l $(BASE_DIR)/log.base.txt
 	cp -f $(BASE_DIR)/log.base.txt $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/log.base.txt
@@ -18,8 +23,8 @@ check-package-python-version:
 	$(foreach log,log.python2.txt log.python3.txt, \
 		diff -U3 $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/log.base.txt $(BASE_DIR)/$(log) > $(BASE_DIR)/log.diff; \
 	)
-	python2 -m flake8 --max-line-length=132 --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
-	python3 -m flake8 --max-line-length=132 --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
+	python2 -m flake8 $(FLAKE8_IGNORE) --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
+	python3 -m flake8 $(FLAKE8_IGNORE) --stat $(TOPDIR)/{utils/checkpackagelib/*.py,utils/check-package}
 
 unit-tests:
 	rm -rf $(BASE_DIR)/pytest
@@ -29,5 +34,8 @@ unit-tests:
 	$(foreach file,$(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/pytest/*), \
 		ln -snf $(file) $(BASE_DIR)/pytest/ ;\
 	)
+	$(foreach file,$(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/pytest/.f*), \
+		ln -snf $(file) $(BASE_DIR)/pytest/ ;\
+	)
 	cd $(BASE_DIR)/pytest && pytest
-	python2 -m flake8 --stat $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/
+	cd $(BASE_DIR)/pytest && python2 -m flake8 --stat
