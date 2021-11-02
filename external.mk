@@ -1,6 +1,6 @@
 include $(sort $(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/package/*/*.mk))
 
-check-check-package: check-package-reference-log check-package-python-version unit-tests
+check-check-package: check-package-reference-log check-package-python-version unit-tests unit-tests-style
 
 # FIXME: workaround for old versions of check-package
 FLAKE8_IGNORE += --ignore=W605,E123
@@ -36,4 +36,6 @@ unit-tests:
 		ln -snf $(file) $(BASE_DIR)/pytest/ ;\
 	)
 	cd $(BASE_DIR)/pytest && pytest
+
+unit-tests-style:
 	cd $(BASE_DIR)/pytest && python3 -m flake8 --stat

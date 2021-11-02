@@ -7,7 +7,8 @@ TARGETS = \
   update-reference-log \
   check-package-reference-log \
   check-package-python-version \
-  unit-tests
+  unit-tests \
+  unit-tests-style
 
 .PHONY: default
 default: check-check-package
