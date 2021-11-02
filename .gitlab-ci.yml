@@ -1,0 +1,4 @@
+image: ricardomartincoski/checkpackage:20211101.2218
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive

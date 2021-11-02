@@ -1,7 +1,7 @@
 usage: check-package [-h] [--br2-external] [--manual-url MANUAL_URL]
                      [--verbose] [--quiet] [--include-only INCLUDE_LIST]
                      [--exclude EXCLUDE_LIST] [--dry-run]
-                     [F [F ...]]
+                     [F ...]
 
 positional arguments:
   F                     list of files

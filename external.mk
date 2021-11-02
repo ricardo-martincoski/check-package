@@ -35,7 +35,7 @@ unit-tests:
 	$(foreach file,$(wildcard $(BR2_EXTERNAL_CHECK_PACKAGE_BAD_EXAMPLES_PATH)/pytest/.f*), \
 		ln -snf $(file) $(BASE_DIR)/pytest/ ;\
 	)
-	cd $(BASE_DIR)/pytest && pytest
+	cd $(BASE_DIR)/pytest && pytest-3
 
 unit-tests-style:
 	cd $(BASE_DIR)/pytest && python3 -m flake8 --stat

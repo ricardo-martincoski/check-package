@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+set -o errexit
+DIR=$(dirname "${0}")
+IMAGE=$(grep ^image: "${DIR}/.gitlab-ci.yml" | sed -e 's,^image: ,,g')
+MAIN_DIR=$(readlink -f "${DIR}")
+# shellcheck disable=SC2086
+# shellcheck disable=SC2048
+docker run -v ${MAIN_DIR}:/home/br-user -i -t "${IMAGE}" $*

@@ -4,10 +4,9 @@ Helper files to test changes in check-package script.
 
 ### Prerequisites
 
-* [Buildroot prerequisites](http://nightly.buildroot.org/#requirement-mandatory)
-* Python 3 (3.6 or any later)
-* flake8 for both Python 3
-* pytest
+* git
+* make
+* docker
 
 ### Installing
 
